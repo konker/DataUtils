@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+group = 'com.luxvelocitas.datautils'
+version = '0.1.0'
+
+description = """DataUtils"""
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+jar {
+    baseName = 'DataUtils'
+    version =  '0.1.0'
+}
+
+repositories {
+    jcenter()
+}
+dependencies {
+    // compile 'com.luxvelocitas.jnigen:JNIGen:0.1.0'
+    compile fileTree(dir: '../JNIGen/build/libs', include: '*.jar')
+    testCompile group: 'junit', name: 'junit', version:'3.8.1'
+}
