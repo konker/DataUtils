@@ -19,7 +19,7 @@
 
 package com.luxvelocitas.datautils;
 
-import com.morningwoodsoftware.jnigen.NativeCallable;
+import com.luxvelocitas.jnigen.NativeCallable;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -155,6 +155,17 @@ public final class DataBundle implements Cloneable, Serializable {
      */
     public Set<String> keySet() {
         return mMap.keySet();
+    }
+
+    /**
+     * Returns an array containing the Strings used as keys in this DataBundle.
+     *
+     * @return an array of String keys
+     */
+    @NativeCallable
+    public String[] keyArray() {
+        String[] ret = new String[mMap.size()];
+        return mMap.keySet().toArray(ret);
     }
 
     /**
