@@ -25,4 +25,22 @@ public class Util {
         }
     }
 
+    public static void shuffleIntSubArrayInPlace(int[] array, int offset) {
+        if (array.length <= offset) {
+            return;
+        }
+
+        // Create a temporary sub array
+        int subArrayCount = array.length - offset;
+        int[] subArray = new int[subArrayCount];
+
+        // Copy over items after offset into the sub array
+        System.arraycopy(array, offset, subArray, 0, subArrayCount);
+
+        // Shuffle the sub arrray
+        shuffleIntArrayInPlace(subArray);
+
+        // Copy the shuffled sub array back to the original array after offset
+        System.arraycopy(subArray, 0, array, offset, subArrayCount);
+    }
 }
