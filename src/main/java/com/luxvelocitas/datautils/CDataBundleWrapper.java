@@ -8,7 +8,7 @@ package com.luxvelocitas.datautils;
 public class CDataBundleWrapper {
 
     public static native long create();
-    public static native long destroy(long nativePtr);
+    public static native void destroy(long nativePtr);
 
     /**
      * Returns the number of mappings contained in this DataBundle.
@@ -35,14 +35,6 @@ public class CDataBundleWrapper {
      * @return true if the key is part of the mapping, false otherwise
      */
     public static native boolean containsKey(long nativePrt, String key);
-
-    /**
-     * Returns the entry with the given key as an object.
-     *
-     * @param key a String key
-     * @return an Object, or null
-     */
-    public static native Object get(long nativePrt, String key);
 
     /**
      * Removes any entry with the given key from the mapping of this DataBundle.
