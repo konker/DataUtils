@@ -139,6 +139,18 @@ public final class DataBundle implements Cloneable, Serializable {
     }
 
     /**
+     * Inserts an Object value into the mapping of this DataBundle, replacing
+     * any existing value for the given key.  Either key or value may be null.
+     *
+     * @param key a String, or null
+     * @param value a Object, or null
+     */
+    @NativeCallable
+    public void put(String key, Object value) {
+        mMap.put(key, value);
+    }
+
+    /**
      * Inserts all mappings from the given DataBundle into this DataBundle.
      *
      * @param dataBundle a DataBundle
@@ -153,7 +165,7 @@ public final class DataBundle implements Cloneable, Serializable {
      *
      * @return a Set of String keys
      */
-    public Set<String> keySet() {
+    public Set<String> getKeySet() {
         return mMap.keySet();
     }
 
@@ -163,9 +175,53 @@ public final class DataBundle implements Cloneable, Serializable {
      * @return an array of String keys
      */
     @NativeCallable
-    public String[] keyArray() {
+    public String[] getKeyArray() {
         String[] ret = new String[mMap.size()];
         return mMap.keySet().toArray(ret);
+    }
+
+    /**
+     * Returns an array containing the Strings used as keys in this DataBundle.
+     *
+     * @return an array of type
+     */
+    @NativeCallable
+    public String getTypeArray() {
+        StringBuilder ret = new StringBuilder();
+        for (String key : getKeyArray()) {
+            Class clazz = get(key).getClass();
+            if (clazz == Boolean.class) {
+                ret.append('z');
+            }
+            else if (clazz == Character.class) {
+                ret.append('c');
+            }
+            else if (clazz == String.class) {
+                ret.append('x');
+            }
+            if (clazz == Byte.class) {
+                ret.append('b');
+            }
+            else if (clazz == Short.class) {
+                ret.append('s');
+            }
+            else if (clazz == Integer.class) {
+                ret.append('i');
+            }
+            else if (clazz == Long.class) {
+                ret.append('l');
+            }
+            else if (clazz == Float.class) {
+                ret.append('f');
+            }
+            else if (clazz == Double.class) {
+                ret.append('d');
+            }
+            else {
+                ret.append('o');
+            }
+        }
+        return ret.toString();
     }
 
     /**
