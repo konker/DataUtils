@@ -1,4 +1,4 @@
-package com.luxvelocitas.datautils;
+package com.luxvelocitas.tinydatautils;
 
 /**
  * A general-purpose pair

@@ -1,15 +1,18 @@
 apply plugin: 'java'
+apply plugin:'application'
 
-group = 'com.luxvelocitas.datautils'
+group = 'com.luxvelocitas.tinydatautils'
 version = '0.1.0'
 
-description = """DataUtils"""
+description = """TinyDataUtils"""
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
+mainClassName = "com.luxvelocitas.jnigen.JNIGen"
+
 jar {
-    baseName = 'DataUtils'
+    baseName = 'TinyDataUtils'
     version =  '0.1.0'
 }
 

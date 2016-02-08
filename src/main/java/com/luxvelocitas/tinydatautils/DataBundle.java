@@ -17,7 +17,7 @@
 * Konrad Markus <konker@luxvelocitas.com>
 */
 
-package com.luxvelocitas.datautils;
+package com.luxvelocitas.tinydatautils;
 
 import com.luxvelocitas.jnigen.NativeCallable;
 

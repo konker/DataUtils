@@ -1,4 +1,4 @@
-package com.luxvelocitas.datautils;
+package com.luxvelocitas.tinydatautils;
 
 import java.util.Random;
 

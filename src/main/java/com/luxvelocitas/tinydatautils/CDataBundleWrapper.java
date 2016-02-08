@@ -1,4 +1,4 @@
-package com.luxvelocitas.datautils;
+package com.luxvelocitas.tinydatautils;
 
 /**
  * A mapping from String values to various types.
